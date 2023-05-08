@@ -20,7 +20,6 @@ public class DataGenerator {
             .setContentType(ContentType.JSON)
             .log(LogDetail.ALL)
             .build();
-
     private static final Faker faker = new Faker(new Locale("en"));
 
     private DataGenerator() {
@@ -37,16 +36,12 @@ public class DataGenerator {
     }
 
     public static String getRandomLogin() {
-        String login = faker.name()
-                .username();
-        return login;
+        return faker.name().username();
 
     }
 
     public static String getRandomPassword() {
-        String password = faker.internet()
-                .password();
-        return password;
+        return faker.internet().password();
 
     }
 
@@ -56,8 +51,7 @@ public class DataGenerator {
         }
 
         public static RegistrationDto getUser(String status) {
-            var user = new RegistrationDto(getRandomLogin(), getRandomPassword(), status);
-            return user;
+            return new RegistrationDto(getRandomLogin(), getRandomPassword(), status);
         }
 
         public static RegistrationDto getRegisteredUser(String status) {
